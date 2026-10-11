@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090d16">
+<title>FootJRI — Football Cards</title>
+<style>
+:root{--bg:#090d16;--panel:#111827;--panel2:#172235;--line:#29364b;--text:#f4f7fb;--muted:#9ba9bd;--gold:#f6c85f;--blue:#5ba8ff;--purple:#b18cff;--green:#4ce0a2}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#18243b 0,#090d16 48%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;color:inherit}.app{max-width:1000px;margin:auto;padding:16px 14px 90px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 2px 18px}.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#f6c85f,#c9872b);color:#121722;display:grid;place-items:center;font-weight:1000;font-size:19px;box-shadow:0 6px 24px #f6c85f24}.brand h1{font-size:18px;margin:0;letter-spacing:.6px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.wallet{border:1px solid #66552d;background:#211d15;border-radius:13px;padding:9px 12px;color:var(--gold);font-weight:800;white-space:nowrap}
+.hero{border:1px solid #33435a;border-radius:22px;padding:20px;background:linear-gradient(120deg,#17263b,#111827 65%,#292118);position:relative;overflow:hidden}.hero:after{content:"⚽";position:absolute;font-size:150px;right:-12px;top:-24px;opacity:.07;transform:rotate(-18deg)}.eyebrow{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);font-weight:800}.hero h2{font-size:27px;line-height:1.1;margin:9px 0}.hero p{color:#b9c5d5;font-size:13px;line-height:1.5;max-width:420px;margin:0 0 15px}.primary{background:linear-gradient(135deg,#f7d779,#dca23b);color:#151923;font-weight:900;border-radius:12px;padding:12px 16px;box-shadow:0 6px 18px #e8b74b20}.section-head{display:flex;align-items:center;justify-content:space-between;margin:23px 2px 12px}.section-head h3{margin:0;font-size:17px}.section-head span{color:var(--muted);font-size:12px}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:17px 0}.nav button{background:#111827;border:1px solid #263247;border-radius:12px;padding:11px 4px;color:#aebbd0;font-size:12px;font-weight:700}.nav button.active{color:var(--gold);border-color:#88713d;background:#262315}.nav b{display:block;font-size:18px;margin-bottom:4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.stat{border:1px solid var(--line);border-radius:14px;padding:12px;background:#111827b8}.stat strong{display:block;font-size:20px}.stat small{color:var(--muted);font-size:11px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.player-card{min-width:0;position:relative;border-radius:17px;padding:9px;background:linear-gradient(155deg,#d7dde5,#7c8999 55%,#e7edf5);color:#101722;box-shadow:0 8px 20px #0005;overflow:hidden;border:1px solid #e6edf7}.player-card.rare{background:linear-gradient(155deg,#86c9ff,#2479c7 52%,#b6e6ff)}.player-card.epic{background:linear-gradient(155deg,#e1b4ff,#8444cf 52%,#d6a8ff)}.player-card.legendary{background:linear-gradient(155deg,#fff0a2,#d69a22 45%,#fff0b4);box-shadow:0 0 0 1px #ffe49a,0 8px 26px #e6ad3530}.card-top{display:flex;justify-content:space-between;align-items:start;position:relative;z-index:1}.ovr{font-size:26px;font-weight:1000;line-height:1}.pos{font-size:10px;font-weight:900;margin-top:3px}.flag{font-size:19px}.portrait{height:112px;display:grid;place-items:center;font-size:70px;text-shadow:0 5px 9px #0003;filter:drop-shadow(0 7px 4px #0002);position:relative}.portrait:before{content:"";position:absolute;width:95px;height:95px;border-radius:50%;background:#fff5;filter:blur(1px)}.portrait span{position:relative}.player-name{font-weight:1000;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}.club{text-align:center;font-size:10px;font-weight:700;opacity:.8;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:9px;padding-top:7px;border-top:1px solid #1113;font-size:10px;font-weight:900}.rarity{font-size:9px;text-transform:uppercase;letter-spacing:.5px}.small-btn{background:#111827;color:white;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:800;margin-top:9px;width:100%}.pack{background:linear-gradient(145deg,#202e46,#111827);border:1px solid #394b66;border-radius:17px;padding:16px;text-align:center}.pack-art{height:120px;display:grid;place-items:center;font-size:65px;background:radial-gradient(circle,#5a4a2b,#182238 62%,transparent 70%);margin-bottom:8px}.pack h4{margin:6px 0}.pack p{color:var(--muted);font-size:12px;margin:0 0 12px}.pack .primary{width:100%;padding:10px}
+.panel{background:#111827;border:1px solid var(--line);border-radius:16px;padding:15px;margin-top:12px}.empty{text-align:center;color:var(--muted);padding:35px 10px}.notice{font-size:11px;line-height:1.5;color:var(--muted);margin-top:15px}.hidden{display:none!important}.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#f5f7fb;color:#101722;border-radius:12px;padding:12px 16px;font-weight:800;font-size:13px;box-shadow:0 10px 30px #0008;z-index:10;max-width:90%;text-align:center}.footer-nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;background:#0b101bec;backdrop-filter:blur(14px);border-top:1px solid #273247;padding:9px max(12px,env(safe-area-inset-right)) calc(9px + env(safe-area-inset-bottom));z-index:5}.footer-inner{width:100%;max-width:700px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.footer-inner button{background:transparent;color:#8e9bb0;font-size:10px;padding:4px}.footer-inner button b{display:block;font-size:18px;margin-bottom:3px}.footer-inner button.active{color:var(--gold)}
+@media(min-width:620px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:28px}.hero h2{font-size:36px}.portrait{height:145px}.app{padding-left:22px;padding-right:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><div class="logo">FJ</div><div><h1>FootJRI</h1><small>FOOTBALL CARDS • DEMO</small></div></div><div class="wallet">🪙 <span id="coins">1200</span></div></header>
+<section id="homeView">
+<div class="hero"><div class="eyebrow">Season • Prototype</div><h2>Собери свою<br>легендарную команду</h2><p>Открывай паки, собирай игроков и строй состав мечты. Это первая демоверсия FootJRI.</p><button class="primary" onclick="showView('packs')">Открыть пак →</button></div>
+<div class="stats"><div class="stat"><strong id="ownedCount">3</strong><small>Карточек</small></div><div class="stat"><strong id="teamOvr">84</strong><small>Сила состава</small></div><div class="stat"><strong>0</strong><small>Побед онлайн</small></div></div>
+<div class="section-head"><h3>Моя команда</h3><span>Демо-коллекция</span></div><div id="homeCards" class="cards"></div>
+<div class="notice">Демо-режим: карточки и игроки пока тестовые. Онлайн-обмен, общий рейтинг и реальные данные подключим следующим этапом.</div>
+</section>
+<section id="collectionView" class="hidden"><div class="section-head"><h3>Моя коллекция</h3><span id="collectionCount">3 карты</span></div><div id="collectionCards" class="cards"></div></section>
+<section id="packsView" class="hidden"><div class="section-head"><h3>Магазин паков</h3><span>За игровые монеты</span></div><div class="cards">
+<div class="pack"><div class="pack-art">📦</div><h4>Стартовый пак</h4><p>1 карточка • шанс на редкую</p><button class="primary" onclick="openPack(150)">🪙 150</button></div>
+<div class="pack"><div class="pack-art">✨</div><h4>Премиум пак</h4><p>3 карточки • шанс на эпическую</p><button class="primary" onclick="openPack(400)">🪙 400</button></div>
+</div><div class="panel"><b>Как работает редкость?</b><p class="notice">Обычная — чаще всего · Редкая — реже · Эпическая — очень редко · Легендарная — самая редкая. Вероятности будут показаны перед открытием в полной версии.</p></div></section>
+<section id="squadView" class="hidden"><div class="section-head"><h3>Состав 4-3-3</h3><span>Локальный прототип</span></div><div class="panel"><div style="text-align:center;font-weight:900;color:#b8e7c5">⚽ ТАКТИЧЕСКАЯ СХЕМА</div><div style="margin-top:14px;border:1px solid #326448;border-radius:14px;padding:18px 8px;background:linear-gradient(#123b2c,#0e2d24);text-align:center;line-height:2.4;font-size:13px">LW　　ST　　RW<br><br>CM　　CM　　CM<br><br>LB　CB　CB　RB<br><br>🧤 GK</div><p class="notice">В полной версии сюда можно будет перетаскивать свои карточки и менять позиции.</p></div><div id="squadCards" class="cards" style="margin-top:12px"></div></section>
+<section id="marketView" class="hidden"><div class="section-head"><h3>Рынок</h3><span>Демо</span></div><div class="panel"><b>Рынок игроков появится на следующем этапе</b><p class="notice">Сделаем настоящие объявления и серверную проверку, чтобы нельзя было продать чужую карточку или создать дубликат.</p></div></section>
+<section id="topView" class="hidden"><div class="section-head"><h3>Онлайн-топ</h3><span>Пока демонстрация</span></div><div class="panel"><div class="empty">🏆<br><br>Общий рейтинг игроков подключим через онлайн-базу.<br><br>Сейчас этот прототип работает локально на устройстве.</div></div></section>
+</div>
+<div class="footer-nav"><div class="footer-inner">
+<button class="active" data-view="home"><b>⌂</b>Главная</button><button data-view="collection"><b>▣</b>Карты</button><button data-view="packs"><b>🎁</b>Паки</button><button data-view="squad"><b>⚽</b>Состав</button>
+</div></div>
+<div id="toast" class="toast hidden"></div>
+<script>
+const starter=[
+{id:1,name:"Kylian Mbappé",pos:"ST",ovr:91,rarity:"legendary",club:"Real Madrid",emoji:"⚡",flag:"🇫🇷"},
+{id:2,name:"Mohamed Salah",pos:"RW",ovr:87,rarity:"epic",club:"Liverpool",emoji:"👑",flag:"🇪🇬"},
+{id:3,name:"Jude Bellingham",pos:"CM",ovr:84,rarity:"rare",club:"Real Madrid",emoji:"⭐",flag:"🏴"}
+];
+let collection=JSON.parse(localStorage.getItem("footjri_cards")||"null")||starter;
+let coins=Number(localStorage.getItem("footjri_coins")||1200);
+const rarityNames={common:"Обычная",rare:"Редкая",epic:"Эпическая",legendary:"Легендарная"};
+function save(){localStorage.setItem("footjri_cards",JSON.stringify(collection));localStorage.setItem("footjri_coins",String(coins));render()}
+function cardHTML(p){return `<article class="player-card ${p.rarity}"><div class="card-top"><div><div class="ovr">${p.ovr}</div><div class="pos">${p.pos}</div></div><div class="flag">${p.flag||"⚽"}</div></div><div class="portrait"><span>${p.emoji||"⚽"}</span></div><div class="player-name">${p.name}</div><div class="club">${p.club}</div><div class="card-bottom"><span class="rarity">${rarityNames[p.rarity]||"Обычная"}</span><span>${p.pos}</span></div></article>`}
+function render(){document.getElementById("coins").textContent=coins;document.getElementById("ownedCount").textContent=collection.length;document.getElementById("collectionCount").textContent=collection.length+" карт";document.getElementById("teamOvr").textContent=collection.length?Math.round(collection.reduce((a,p)=>a+p.ovr,0)/collection.length):0;document.getElementById("homeCards").innerHTML=collection.slice(0,4).map(cardHTML).join("");document.getElementById("collectionCards").innerHTML=collection.map(cardHTML).join("")||'<div class="empty">Пока нет карточек</div>';document.getElementById("squadCards").innerHTML=collection.slice(0,11).map(cardHTML).join("")}
+function showView(view){document.querySelectorAll('[id$="View"]').forEach(el=>el.classList.add("hidden"));let target=document.getElementById(view+"View");if(target)target.classList.remove("hidden");document.querySelectorAll(".footer-inner button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll(".footer-inner button").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2400)}
+const demoPool=[
+{name:"Vinícius Jr.",pos:"LW",ovr:89,rarity:"epic",club:"Real Madrid",emoji:"🔥",flag:"🇧🇷"},
+{name:"Erling Haaland",pos:"ST",ovr:90,rarity:"legendary",club:"Manchester City",emoji:"💥",flag:"🇳🇴"},
+{name:"Bukayo Saka",pos:"RW",ovr:85,rarity:"rare",club:"Arsenal",emoji:"⭐",flag:"🏴"},
+{name:"Pedri",pos:"CM",ovr:86,rarity:"epic",club:"Barcelona",emoji:"🎯",flag:"🇪🇸"},
+{name:"Federico Valverde",pos:"CM",ovr:85,rarity:"rare",club:"Real Madrid",emoji:"⚡",flag:"🇺🇾"},
+{name:"Harry Kane",pos:"ST",ovr:88,rarity:"epic",club:"Bayern",emoji:"🎯",flag:"🏴"},
+{name:"Rúben Dias",pos:"CB",ovr:82,rarity:"rare",club:"Manchester City",emoji:"🛡️",flag:"🇵🇹"},
+{name:"Alisson",pos:"GK",ovr:81,rarity:"rare",club:"Liverpool",emoji:"🧤",flag:"🇧🇷"},
+{name:"Cristiano Ronaldo",pos:"ST",ovr:93,rarity:"legendary",club:"Verify current club",emoji:"🐐",flag:"🇵🇹"}
+];
+function openPack(cost){if(coins<cost){toast("Недостаточно монет!");return}coins-=cost;let n=cost===400?3:1;for(let i=0;i<n;i++){let p={...demoPool[Math.floor(Math.random()*demoPool.length)],id:Date.now()+i+Math.floor(Math.random()*10000)};collection.unshift(p)}save();toast("Пак открыт! Получено карточек: "+n);showView("collection")}
+render();
+</script>
+</body>
+</html>
