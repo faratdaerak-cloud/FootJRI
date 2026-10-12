@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "FootJRI — Ultimate Club",
+  "short_name": "FootJRI",
+  "description": "Футбольная коллекционная игра: открывай паки, собирай карточки и строй команду.",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#080c13",
+  "theme_color": "#080c13",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
